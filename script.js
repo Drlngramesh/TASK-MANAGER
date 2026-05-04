@@ -6,8 +6,6 @@ function addTask() {
   const li = document.createElement("li");
   li.textContent = input.value;
 
-  li.onclick = () => li.remove();
-
   list.appendChild(li);
   input.value = "";
 }
