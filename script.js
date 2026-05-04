@@ -1,11 +1,14 @@
 console.log("App started");
-function addTask() {
-  const input = document.getElementById("taskInput");
-  const list = document.getElementById("taskList");
-
+tasks.forEach((task, index) => {
   const li = document.createElement("li");
-  li.textContent = input.value;
+  li.textContent = task;
+
+  
+  li.onclick = () => {
+    tasks.splice(index, 1);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    renderTasks();
+  };
 
   list.appendChild(li);
-  input.value = "";
-}
+});
